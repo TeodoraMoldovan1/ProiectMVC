@@ -35,6 +35,11 @@ namespace ProiectPapetarie.Controllers
             return View();
         }
 
+        public IActionResult Despre()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

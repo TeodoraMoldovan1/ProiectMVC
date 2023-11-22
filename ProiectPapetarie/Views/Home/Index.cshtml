@@ -4,8 +4,6 @@
 
 }
 
-
-
 <div class="my-2">
   <form class="row row-cols-lg-auto g-3 align-items-center">
     <div class="col-12">
@@ -68,20 +66,20 @@
             if (usernameEl == null) {
                 window.location.href = "/Identity/Account/Login";
             }
-            try {
-                console.log("Incepe fetch");
-                var response = await fetch(`/Cos/AddItem?produsId=${produsId}`);
-                console.log("S-a incheiat fetch");
-                if (response.status == 200) {
-                    var result = await response.json();
-                    var cosCountEl = document.getElementById("cosCounter");
-                    cosCountEl.innerHTML = result;
-                    window.location.href = "#cosCounter";
-                }
-            }
-            catch (err) {
-                console.log(err);
-            }
+            // try {
+            //     console.log("Incepe fetch");
+            //     var response = await fetch(`/Cos/AddItem?produsId=${produsId}`);
+            //     console.log("S-a incheiat fetch");
+            //     if (response.status == 200) {
+            //         var result = await response.json();
+            //         var cosCountEl = document.getElementById("cosCounter");
+            //         cosCountEl.innerHTML = result;
+            //         window.location.href = "#cosCounter";
+            //     }
+            // }
+            // catch (err) {
+            //     console.log(err);
+            // }
         }
     </script>
 }
