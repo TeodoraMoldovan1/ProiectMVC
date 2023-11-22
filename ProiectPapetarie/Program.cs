@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ProiectPapetarie;
 using ProiectPapetarie.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,11 +11,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<IdentityUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IHomeRepo, HomeRepo>();
+builder.Services.AddTransient<ICosRepo, CosRepo>();
 
 var app = builder.Build();
+
+//folosita pt adaugarea datelor adminului
+//using (var scope = app.Services.CreateScope())
+//{
+//    await DbSeeder.SeedDefaultDataAsync(scope.ServiceProvider);
+//}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

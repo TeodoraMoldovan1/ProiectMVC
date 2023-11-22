@@ -9,7 +9,7 @@ namespace ProiectPapetarie.Models
         [Required]
         public string IDUser { get; set; }
         [Required]
-        public DateTime DataCreare { get; set; } = DateTime.Now;
+        public DateTime DataCreare { get; set; } = DateTime.UtcNow;
         [Required]
         public int IDStatusComanda { get; set; }
         public bool IsDeleted { get; set; } = false;

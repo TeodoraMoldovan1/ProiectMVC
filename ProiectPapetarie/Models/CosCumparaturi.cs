@@ -9,5 +9,6 @@ namespace ProiectPapetarie.Models
         [Required]
         public string IDUser { get; set; }
         public bool IsDeleted { get; set; } = false;
+        public ICollection<DetaliiCosCump> detaliiCosCumps { get; set; }
     }
 }
