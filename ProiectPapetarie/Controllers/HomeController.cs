@@ -3,6 +3,7 @@ using ProiectPapetarie.Models;
 using ProiectPapetarie.Models.DT;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace ProiectPapetarie.Controllers
 {
@@ -35,7 +36,7 @@ namespace ProiectPapetarie.Controllers
             return View();
         }
 
-        public IActionResult Despre()
+        public IActionResult Contact()
         {
             return View();
         }

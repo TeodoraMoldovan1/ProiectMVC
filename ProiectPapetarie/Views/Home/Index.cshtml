@@ -12,7 +12,7 @@
             <option selected>Categorie</option>
                 @foreach (var categ in Model.Categorii)
                 {
-                    <option selected="@(categ.IDCategorie == Model.TipId)" value="@categ.IDCategorie">@categ.DenumireCategorie</option>
+                    <option selected="@(categ.IDCategorie== Model.TipId)" value="@categ.IDCategorie">@categ.DenumireCategorie</option>
                 }
     </select>
   </div>
@@ -60,26 +60,88 @@
 
 @section Scripts
     {
-    <script>
+    <script> 
+        // la incarcarea paginii, actualizeaza numarul cu valoarea din memoria locala
+        // window.onload = async function () 
+        // {
+        //     var cartItemCount = localStorage.getItem('cartItemCount');
+        //     cartItemCount = cartItemCount ? parseInt(cartItemCount) : 0;
+
+        //     var cosCountEl = document.getElementById("cosCounter");
+        //     cosCountEl.innerHTML = cartItemCount;
+        // };
+
+        // async function add(produsId) 
+        // {
+        //     var usernameEl = document.getElementById("username");
+        //     if (usernameEl == null) 
+        //     {
+        //         window.location.href = "/Identity/Account/Login";
+        //     }
+        //     else 
+        //     {
+        //         var cartItemCount = localStorage.getItem('cartItemCount');
+        //         cartItemCount = cartItemCount ? parseInt(cartItemCount) : 0;
+
+        //         cartItemCount++;
+
+        //         // Salvarea noului numar in memoria locala
+        //         localStorage.setItem('cartItemCount', cartItemCount);
+
+        //         // Afisarea noului numar pe pagina
+        //         var cosCountEl = document.getElementById("cosCounter");
+        //         cosCountEl.innerHTML = cartItemCount;
+        //     }
+        // }
+
+        // funcție pentru a reseta contorul la zero
+        function resetCartCounter() {
+            localStorage.setItem('cartItemCount', '0');
+            var cosCountEl = document.getElementById("cosCounter");
+            cosCountEl.innerHTML = '0';
+            cosCountEl.style.display = 'none'; // Ascunde elementul
+        }
+
+        // La incarcarea paginii, actualizeaza numarul cu valoarea din memoria locala
+        window.onload = async function () {
+            var usernameEl = document.getElementById("username");
+
+            if (usernameEl != null) {
+                // Resetarea contorului la zero la fiecare conectare noua
+                resetCartCounter();
+
+                var cartItemCount = localStorage.getItem('cartItemCount');
+                cartItemCount = cartItemCount ? parseInt(cartItemCount) : 0;
+
+                var cosCountEl = document.getElementById("cosCounter");
+                cosCountEl.innerHTML = cartItemCount;
+                cosCountEl.style.display = 'inline';
+            }
+        };
+
+        // Functie pentru a adauga un produs in cos si a actualiza numarul
         async function add(produsId) {
             var usernameEl = document.getElementById("username");
+
             if (usernameEl == null) {
                 window.location.href = "/Identity/Account/Login";
+            } else {
+                var cartItemCount = localStorage.getItem('cartItemCount');
+                cartItemCount = cartItemCount ? parseInt(cartItemCount) : 0;
+
+                // Incrementarea numarului de produse in cos
+                cartItemCount++;
+
+                // Salvarea noului numar in memoria locala
+                localStorage.setItem('cartItemCount', cartItemCount);
+
+                // Afisarea noului numar pe pagina
+                var cosCountEl = document.getElementById("cosCounter");
+                cosCountEl.innerHTML = cartItemCount;
+
+                // Afiseaza elementul
+                cosCountEl.style.display = 'inline';
             }
-            // try {
-            //     console.log("Incepe fetch");
-            //     var response = await fetch(`/Cos/AddItem?produsId=${produsId}`);
-            //     console.log("S-a incheiat fetch");
-            //     if (response.status == 200) {
-            //         var result = await response.json();
-            //         var cosCountEl = document.getElementById("cosCounter");
-            //         cosCountEl.innerHTML = result;
-            //         window.location.href = "#cosCounter";
-            //     }
-            // }
-            // catch (err) {
-            //     console.log(err);
-            // }
         }
     </script>
 }

@@ -1,0 +1,45 @@
+﻿@model List<Categorie>
+
+@if (TempData["status"] != null)
+{
+    <h3 class="text-warning">@TempData["status"]</h3>
+}
+<div class="container" style="background-color: #80A1C1">
+    <div class="row" pt-4 pb-3>
+        <div class="col-6">
+            <h2 class="text-primary">Categorii produse de papetarie</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Categorie" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-patch-plus"></i> Categorie noua
+            </a>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped" style="background-color: #80A1C1">
+       
+        <tr class="table-header">
+            <th>
+                Denumire categorie
+            </th>
+        </tr>
+        <tbody>
+            @foreach (var obj in Model.OrderBy(u => u.DenumireCategorie))
+            {
+                <tr >
+                    <td>@obj.DenumireCategorie</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-asp-controller="Categorie" asp-action="Edit" asp-route-id="@obj.IDCategorie" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Editare
+                            </a>
+
+                            <a asp-asp-controller="Categorie" asp-action="Delete" asp-route-id="@obj.IDCategorie" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash"></i> Eliminare
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

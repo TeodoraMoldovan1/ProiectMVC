@@ -1,0 +1,46 @@
+﻿@model List<Produs>
+
+<h2>Produse</h2>
+
+<p>Filtrează după categorie:</p>
+<select id="categorieDropdown" onchange="filtrareDupaCategorie()">
+    <option value="">Toate categoriile</option>
+    @foreach (var categorie in ViewBag.CategoriiDistincte)
+    {
+        
+        <option value="@categorie">@categorie</option>
+    }
+</select>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Denumire</th>
+            <th>Descriere</th>
+            <th>Pret</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produs in Model)
+        {
+            <tr>
+                <td>@produs.DenumireProdus</td>
+                <td>@produs.DescriereProdus</td>
+                <td>@produs.PretProdus</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+        function filtrareDupaCategorie() {
+            var categorie = document.getElementById("categorieDropdown").value;
+            window.location.href = "/Produs/Index?categorie=" + categorie;
+        }
+    </script>
+}
+
+

@@ -49,6 +49,13 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Categorie}/{action=Index}/{id?}",
+//    defaults: new { controller = "Categorie" });
+
+
 app.MapRazorPages();
 
 app.Run();

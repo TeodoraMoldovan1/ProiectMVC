@@ -44,7 +44,7 @@ namespace ProiectPapetarie.Controllers
     {
         bool isCheckedOut = await _cosRepo.DoCheckout();
         if (!isCheckedOut)
-            throw new Exception("Something happen in server side");
+            throw new Exception("Eroare server");
         return RedirectToAction("Index", "Home");
     }
 }

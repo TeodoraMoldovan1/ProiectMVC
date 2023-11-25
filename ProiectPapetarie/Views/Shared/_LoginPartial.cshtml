@@ -17,14 +17,17 @@
         <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
                 Salut <span id="username"> @User.Identity?.Name!</span>
             @if(User.IsInRole("Admin"))
-                {
+            {
                     <span>(Admin)</span>
-                }
-            </a>
+                    <a class="nav-link" href="/Categorie/Index">Meniu</a>
+            }
+        </a>
     </li>
+
+
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="nav-link btn btn-link text-white"><i class="bi bi-box-arrow-right"></i> </button>
+                <button type="submit" title="Deconectare" class="nav-link btn btn-link text-white"><i class="bi bi-box-arrow-right"></i> </button>
         </form>
     </li>
 }

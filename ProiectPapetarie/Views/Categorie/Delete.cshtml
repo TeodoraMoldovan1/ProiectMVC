@@ -1,0 +1,24 @@
+﻿@model Categorie
+
+<form method="post">
+    <input asp-for="IDCategorie" hidden />
+    <div>
+        <h1 class="text-primary"> Stergerea unei categorii</h1>
+    </div>
+
+    <div class="mb-3 row p-0">
+        <label asp-for="DenumireCategorie" class="p-0">Sterge produsul</label>
+        <input asp-for="DenumireCategorie" disabled class="form-control" />
+    </div>
+    @*<div asp-validation-summary="Model-Only"></div>*@
+    
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <button type="submit" class="btn btn-danger form-control">Stergere</button>
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Categorie" asp-action="Index" class="btn btn-secondary border form-control">Inapoi </a>
+        </div>
+    </div>
+</form>
+

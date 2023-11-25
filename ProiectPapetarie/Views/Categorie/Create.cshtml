@@ -1,0 +1,30 @@
+﻿@model Categorie
+
+<form method="post">
+    <div>
+        <h3 class="text-primary"> Crearea unei noi categorii</h3>
+    </div>
+
+    <div class="mb-3 row p-0">
+        <label asp-for="DenumireCategorie" class="p-0"></label>
+        <input asp-for="DenumireCategorie" lass="form-control" />
+        @* <span asp-validation-for="DenumireCategorie" class="text-danger"></span> *@
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <button type="submit" class="btn btn-primary form-control">Creare</button>
+        </div>
+        <div class="col-6 col-md-3">
+            <a asp-controller="Categorie" asp-action="Index" class="btn btn-secondary border form-control">Inapoi </a>
+        </div>
+    </div>
+    
+</form>
+
+@* @section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+}
+ *@

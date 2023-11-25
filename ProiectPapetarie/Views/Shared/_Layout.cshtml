@@ -23,10 +23,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/Privacy">Privacy</a>
+                        <a class="nav-link" href="/Home/Privacy">Politici de confidentialitate</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Home/Despre">Despre</a>
+                        <a class="nav-link" href="/Home/Contact">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Produs" asp-action="Index">Filtrare produse</a>
                     </li>
                   @*   <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -46,10 +50,17 @@
     <div class="container">
         @RenderBody()
     </div>
+
+    <footer style="text-align: center; padding: 20px;">
+        <p></p>
+        <p>&copy; 2023 Papetarie. Toate drepturile rezervate.</p>
+        <p>Contact: contact@magazindepapetarie.ro <br> Telefon: 0123-456-789</br></p>
+    </footer>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<script>
+@* <script>
         loadCosCount();
         async function loadCosCount() 
         {
@@ -69,7 +80,7 @@
                 console.log(err);
             }
         }
-</script>
+</script> *@
 </html>
 
 @await RenderSectionAsync("Scripts", required: false)

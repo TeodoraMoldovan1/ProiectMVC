@@ -4,10 +4,19 @@
 @{
     ViewData["Title"] = "Intra  în  contul  de  utilizator";
 }
+<style>
+    .bg-bej {
+        background-color: #F8F4E3;
+    }
+</style>
 
+<body class="bg-bej">
 <h1>@ViewData["Title"]</h1>
 <div class="row">
-    <div class="col-md-4">
+        <div class="col-md-6">
+            <img src="/images/img.jpg" alt="Imagine" class="img-fluid" />
+        </div>
+    <div class="col-md-6">
         <section>
             <form id="account" method="post">
                
@@ -78,6 +87,7 @@
         </section>
     </div> *@
 </div>
+</body>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
