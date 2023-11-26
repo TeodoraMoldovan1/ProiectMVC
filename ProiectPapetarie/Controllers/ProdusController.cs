@@ -9,24 +9,24 @@ namespace ProiectPapetarie.Controllers
 {
     public class ProdusController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
 
-        public ProdusController(ApplicationDbContext context)
+        public ProdusController(ApplicationDbContext db)
         {
-            _context = context;
+            _db = db;
         }
 
         public async Task<IActionResult> Index(string categorie)
         {
-            IQueryable<Produs> query = _context.Produse;
+            IQueryable<Produs> query = _db.Produse;
 
             if (!string.IsNullOrEmpty(categorie))
             {
-                query = query.Where(p => p.IDCategorie == _context.Categorii.FirstOrDefault(c => c.DenumireCategorie == categorie).IDCategorie);
+                query = query.Where(p => p.IDCategorie == _db.Categorii.FirstOrDefault(c => c.DenumireCategorie == categorie).IDCategorie);
             }
 
             List<Produs> produse = await query.ToListAsync();
-            ViewBag.CategoriiDistincte = await _context.Categorii.Select(c => c.DenumireCategorie).Distinct().ToListAsync();
+            ViewBag.CategoriiDistincte = await _db.Categorii.Select(c => c.DenumireCategorie).Distinct().ToListAsync();
             return View(produse);
         }
 
