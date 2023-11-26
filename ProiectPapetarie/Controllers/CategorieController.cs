@@ -30,14 +30,10 @@ namespace ProiectPapetarie.Controllers
                 ModelState.AddModelError("DenumireCategorie", "Nu ați introdus denumirea");
             }
 
-            if (ModelState.IsValid)
-            {
                 _db.Categorii.Add(obj);
                 _db.SaveChanges();
                 TempData["status"] = "Categorie creata cu succes!";
                 return RedirectToAction("Index");
-            }
-            return View();
         }
 
         //editare categorie
@@ -48,8 +44,6 @@ namespace ProiectPapetarie.Controllers
                 return NotFound();
             }
             Categorie? categorieDB = _db.Categorii.Find(id);
-            //Categorie? categorieDB1 = _db.Categorii.FirstOrDefault(o => o.IDCategorie == id);
-            //Categorie? categorieDB2 = _db.Categorii.Where(o => o.IDCategorie == id).FirstOrDefault();
 
             if (categorieDB == null)
             {
@@ -61,14 +55,10 @@ namespace ProiectPapetarie.Controllers
         [HttpPost, ActionName("Edit")]
         public IActionResult Edit(Categorie obj)
         {
-            if (ModelState.IsValid)
-            {
                 _db.Categorii.Update(obj);
                 _db.SaveChanges();
                 TempData["status"] = "Categorie modificata cu succes!";
                 return RedirectToAction("Index");
-            }
-            return View();
         }
 
         //stergere categorie

@@ -7,8 +7,8 @@
 
     <div class="mb-3 row p-0">
         <label asp-for="DenumireCategorie" class="p-0"></label>
-        <input asp-for="DenumireCategorie" lass="form-control" />
-        @* <span asp-validation-for="DenumireCategorie" class="text-danger"></span> *@
+        <input asp-for="DenumireCategorie" class="form-control" />
+        <span asp-validation-for="DenumireCategorie" class="text-danger"></span>
     </div>
 
     <div class="row">
@@ -18,13 +18,14 @@
         <div class="col-6 col-md-3">
             <a asp-controller="Categorie" asp-action="Index" class="btn btn-secondary border form-control">Inapoi </a>
         </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
     </div>
     
 </form>
 
-@* @section Scripts{
+@section Scripts{
     @{
         <partial name="_ValidationScriptsPartial"></partial>
     }
 }
- *@

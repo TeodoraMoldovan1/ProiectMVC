@@ -61,39 +61,6 @@
 @section Scripts
     {
     <script> 
-        // la incarcarea paginii, actualizeaza numarul cu valoarea din memoria locala
-        // window.onload = async function () 
-        // {
-        //     var cartItemCount = localStorage.getItem('cartItemCount');
-        //     cartItemCount = cartItemCount ? parseInt(cartItemCount) : 0;
-
-        //     var cosCountEl = document.getElementById("cosCounter");
-        //     cosCountEl.innerHTML = cartItemCount;
-        // };
-
-        // async function add(produsId) 
-        // {
-        //     var usernameEl = document.getElementById("username");
-        //     if (usernameEl == null) 
-        //     {
-        //         window.location.href = "/Identity/Account/Login";
-        //     }
-        //     else 
-        //     {
-        //         var cartItemCount = localStorage.getItem('cartItemCount');
-        //         cartItemCount = cartItemCount ? parseInt(cartItemCount) : 0;
-
-        //         cartItemCount++;
-
-        //         // Salvarea noului numar in memoria locala
-        //         localStorage.setItem('cartItemCount', cartItemCount);
-
-        //         // Afisarea noului numar pe pagina
-        //         var cosCountEl = document.getElementById("cosCounter");
-        //         cosCountEl.innerHTML = cartItemCount;
-        //     }
-        // }
-
         // funcție pentru a reseta contorul la zero
         function resetCartCounter() {
             localStorage.setItem('cartItemCount', '0');
